@@ -28,4 +28,11 @@ void error_handler(char *line, FILE *file, unsigned int counter, stack_t *head)
 			fprintf(stderr, "L%d: can't swap, stack too short\n", counter);
 			exit(EXIT_FAILURE);
 		}
+	if (strcmp(arguments[0], "add") == 0)
+		if (head == NULL || head->next == NULL)
+		{
+			fprintf(stderr, "L%d: can't add, stack too short\n", counter);
+			free_stack(head);
+			exit(EXIT_FAILURE);
+		}
 }

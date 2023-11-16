@@ -53,5 +53,6 @@ void pall_stack(stack_t **head, unsigned int counter);
 void pint_stack(stack_t **head, unsigned int counter);
 void pop_stack(stack_t **head, unsigned int counter);
 void swap_stack(stack_t **head, unsigned int counter);
+void add_stack(stack_t **head, unsigned int counter);
 
 #endif
