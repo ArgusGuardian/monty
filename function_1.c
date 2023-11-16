@@ -144,3 +144,16 @@ void pchar_stack(stack_t **head, unsigned int counter)
 	(void)counter;
 	printf("%c\n", (char)value);
 }
+
+void pstr_stack(stack_t **head, unsigned int counter)
+{
+	stack_t *current = *head;
+
+	(void)counter;
+	while (current != NULL && current->n != 0 && current->n >= 0 && current->n <= 127)
+	{
+		putchar((char)current->n);
+		current = current->next;
+	}
+	putchar('\n');
+}

@@ -60,5 +60,6 @@ void div_stack(stack_t **head, unsigned int counter);
 void mul_stack(stack_t **head, unsigned int counter);
 void mod_stack(stack_t **head, unsigned int counter);
 void pchar_stack(stack_t **head, unsigned int counter);
+void pstr_stack(stack_t **head, unsigned int counter);
 
 #endif
