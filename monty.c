@@ -1,6 +1,11 @@
 #include "monty.h"
 char **arguments;
-
+/**
+ * main - main function of the monty interpreter
+ * @argc: number of arguments given in the command
+ * @argv: double array of the commands given
+ * Return: retun 0 on success
+ */
 int main(int argc, char const *argv[])
 {
 	FILE *file;
@@ -18,9 +23,12 @@ int main(int argc, char const *argv[])
 	}
 	read_line(file);
 
-	return 0;
+	return (0);
 }
-
+/**
+ * read_line - open file and read lines
+ * @file: pointer to file to be opened
+ */
 void read_line(FILE *file)
 {
 	char *line = NULL;
@@ -48,7 +56,9 @@ void read_line(FILE *file)
 		if (strncmp(arguments[0], "#", 1) == 0)
 			continue;
 
-		error_handler(line, file, counter, head);
+		error_1(line, file, counter, head);
+		error_2(line, file, counter, head);
+		error_3(line, file, counter, head);
 
 		alert = brain(&head, counter);
 		if (alert == -1)

@@ -21,7 +21,13 @@ int _isdigit(char *str)
 	}
 	return (1);
 }
-
+/**
+ * free_for_all - Frees allocated memory and closes file.
+ * @line: Pointer to the dynamically allocated line.
+ * @file: File stream to be closed.
+ * @head: Pointer to the head of a stack.
+ * @arguments: Pointer to an array of command arguments.
+ */
 void free_for_all(char *line, FILE *file, stack_t *head, char **arguments)
 {
 	if (line)
@@ -30,7 +36,10 @@ void free_for_all(char *line, FILE *file, stack_t *head, char **arguments)
 	free_stack(head);
 	free(arguments);
 }
-
+/**
+ * free_stack - Frees a stack.
+ * @head: Pointer to the head of a stack.
+ */
 void free_stack(stack_t *head)
 {
 	stack_t *current;
@@ -42,7 +51,11 @@ void free_stack(stack_t *head)
 		free(current);
 	}
 }
-
+/**
+ * check_line - Checks if a line contains non-whitespace characters.
+ * @line: Pointer to the line to be checked.
+ * Return: 1 if the line contains non-whitespace characters, 0 otherwise.
+ */
 int check_line(char *line)
 {
 	int i = 0;

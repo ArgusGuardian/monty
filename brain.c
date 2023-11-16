@@ -1,5 +1,10 @@
 #include "monty.h"
-
+/**
+ * brain - handling error
+ * @counter: line number
+ * @head: head of stack
+ * Return: one if function opcode is valid 0 if not
+ */
 int brain(stack_t **head, unsigned int counter)
 {
 	int i = 0;

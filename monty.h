@@ -44,7 +44,9 @@ typedef struct instruction_s
 void read_line(FILE *file);
 int brain(stack_t **head, unsigned int counter);
 int _isdigit(char *str);
-void error_handler(char *line, FILE *file, unsigned int counter, stack_t *head);
+void error_1(char *line, FILE *file, unsigned int counter, stack_t *head);
+void error_2(char *line, FILE *file, unsigned int counter, stack_t *head);
+void error_3(char *line, FILE *file, unsigned int counter, stack_t *head);
 void free_stack(stack_t *head);
 void free_for_all(char *line, FILE *file, stack_t *head, char **arguments);
 int check_line(char *line);

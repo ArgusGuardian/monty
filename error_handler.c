@@ -1,6 +1,12 @@
 #include "monty.h"
-
-void error_handler(char *line, FILE *file, unsigned int counter, stack_t *head)
+/**
+ * error_1 - handling error
+ * @line: current line
+ * @file: pointer to file
+ * @counter: line number
+ * @head: head of stack
+ */
+void error_1(char *line, FILE *file, unsigned int counter, stack_t *head)
 {
 	if (strcmp(arguments[0], "push") == 0)
 		if (!_isdigit(arguments[1]) || arguments[1] == NULL)
@@ -35,6 +41,16 @@ void error_handler(char *line, FILE *file, unsigned int counter, stack_t *head)
 			free_for_all(line, file, head, arguments);
 			exit(EXIT_FAILURE);
 		}
+}
+/**
+ * error_2 - handling error
+ * @line: current line
+ * @file: pointer to file
+ * @counter: line number
+ * @head: head of stack
+ */
+void error_2(char *line, FILE *file, unsigned int counter, stack_t *head)
+{
 	if (strcmp(arguments[0], "sub") == 0)
 		if (!head || !head->next)
 		{
@@ -57,13 +73,11 @@ void error_handler(char *line, FILE *file, unsigned int counter, stack_t *head)
 		}
 	}
 	if (strcmp(arguments[0], "mul") == 0)
-	{
 		if (head == NULL || head->next == NULL)
 		{
 			fprintf(stderr, "L%d: can't mul, stack too short\n", counter);
 			exit(EXIT_FAILURE);
 		}
-	}
 	if (strcmp(arguments[0], "mod") == 0)
 	{
 		if (head == NULL || head->next == NULL)
@@ -77,6 +91,16 @@ void error_handler(char *line, FILE *file, unsigned int counter, stack_t *head)
 			exit(EXIT_FAILURE);
 		}
 	}
+}
+/**
+ * error_3 - handling error
+ * @line: current line
+ * @file: pointer to file
+ * @counter: line number
+ * @head: head of stack
+ */
+void error_3(char *line, FILE *file, unsigned int counter, stack_t *head)
+{
 	if (strcmp(arguments[0], "pchar") == 0)
 	{
 		if (head == NULL)

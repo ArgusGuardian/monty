@@ -1,5 +1,9 @@
 #include "monty.h"
-
+/**
+ * push_stack - push to stack
+ * @counter: line number
+ * @head: head of stack
+ */
 void push_stack(stack_t **head, unsigned int counter)
 {
 	int data;
@@ -28,7 +32,11 @@ void push_stack(stack_t **head, unsigned int counter)
 		(*head) = new;
 	}
 }
-
+/**
+ * pall_stack - print all stack
+ * @counter: line number
+ * @head: head of stack
+ */
 void pall_stack(stack_t **head, unsigned int counter)
 {
 	stack_t *current = *head;
@@ -41,14 +49,22 @@ void pall_stack(stack_t **head, unsigned int counter)
 		current = current->next;
 	}
 }
-
+/**
+ * pint_stack - print head of stack
+ * @counter: line number
+ * @head: head of stack
+ */
 void pint_stack(stack_t **head, unsigned int counter)
 {
 	(void)counter;
 
 	printf("%d\n", (*head)->n);
 }
-
+/**
+ * pop_stack - remove the head of stack
+ * @counter: line number
+ * @head: head of stack
+ */
 void pop_stack(stack_t **head, unsigned int counter)
 {
 	stack_t *temp = *head;
@@ -62,119 +78,11 @@ void pop_stack(stack_t **head, unsigned int counter)
 	free(temp);
 }
 
-void swap_stack(stack_t **head, unsigned int counter)
-{
-	stack_t *first = *head;
-	stack_t *second = (*head)->next;
-
-	(void)counter;
-	first->next = second->next;
-	if (second->next)
-		second->next->prev = first;
-
-	second->prev = NULL;
-	second->next = first;
-	first->prev = second;
-
-	*head = second;
-}
-void add_stack(stack_t **head, unsigned int counter)
-{
-	stack_t *top = *head;
-	stack_t *second_top = top->next;
-
-	(void)counter;
-	second_top->n += top->n;
-	*head = second_top;
-	free(top);
-}
-
-void nop_stack(stack_t **head, unsigned int counter)
-{
-	(void)head;
-	(void)counter;
-}
-
-void sub_stack(stack_t **head, unsigned int counter)
-{
-	int result = (*head)->next->n - (*head)->n;
-
-	(void)counter;
-	pop_stack(head, counter);
-	(*head)->n = result;
-}
-
-void div_stack(stack_t **head, unsigned int counter)
-{
-	stack_t *top = *head;
-	stack_t *second_top = top->next;
-
-	(void)counter;
-	second_top->n /= top->n;
-	*head = second_top;
-	free(top);
-}
-
-void mul_stack(stack_t **head, unsigned int counter)
-{
-	stack_t *top = *head;
-	stack_t *second_top = top->next;
-
-	(void)counter;
-	second_top->n *= top->n;
-	*head = second_top;
-	free(top);
-}
-
-void mod_stack(stack_t **head, unsigned int counter)
-{
-	stack_t *top = *head;
-	stack_t *second_top = top->next;
-
-	(void)counter;
-	second_top->n %= top->n;
-	*head = second_top;
-	free(top);
-}
-
-void pchar_stack(stack_t **head, unsigned int counter)
-{
-	int value = (*head)->n;
-
-	(void)counter;
-	printf("%c\n", (char)value);
-}
-
-void pstr_stack(stack_t **head, unsigned int counter)
-{
-	stack_t *current = *head;
-
-	(void)counter;
-	while (current != NULL && current->n != 0 && current->n >= 0 && current->n <= 127)
-	{
-		putchar((char)current->n);
-		current = current->next;
-	}
-	putchar('\n');
-}
-
-void rotl_stack(stack_t **head, unsigned int counter)
-{
-	stack_t *top = *head;
-	stack_t *current = *head;
-
-	(void)counter;
-	if (*head == NULL || (*head)->next == NULL)
-		return;
-	(*head) = (*head)->next;
-	(*head)->prev = NULL;
-	while (current->next != NULL)
-		current = current->next;
-	current->next = top;
-	top->prev = current;
-	top->next = NULL;
-}
-
+/**
+ * rotr_stack - rotate top to bottom and vice versa
+ * @counter: line number
+ * @head: head of stack
+ */
 void rotr_stack(stack_t **head, unsigned int counter)
 {
 	stack_t *current = *head;
