@@ -54,6 +54,6 @@ void pint_stack(stack_t **head, unsigned int counter);
 void pop_stack(stack_t **head, unsigned int counter);
 void swap_stack(stack_t **head, unsigned int counter);
 void add_stack(stack_t **head, unsigned int counter);
-void nop_stack(unsigned int counter);
+void nop_stack(stack_t **head, unsigned int counter);
 
 #endif
