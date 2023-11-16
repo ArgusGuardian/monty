@@ -147,15 +147,33 @@ void pchar_stack(stack_t **head, unsigned int counter)
 
 void pstr_stack(stack_t **head, unsigned int counter)
 {
-	stack_t *top = *head;
+	stack_t *current = *head;
 
 	(void)counter;
-	while (top != NULL)
+	while (current != NULL && current->n != 0 && current->n >= 0 && current->n <= 127)
 	{
-		if (top->n == 0 || top->n < 0 || top->n > 127)
-			break;
-		printf("%c", (char)top->n);
-		top = top->next;
+		putchar((char)current->n);
+		current = current->next;
 	}
-	printf("\n");
+	putchar('\n');
+}
+
+void rotl_stack(stack_t **head, unsigned int counter)
+{
+	stack_t *top = *head;
+	stack_t *second_top = top->next;
+	stack_t *current = second_top;
+
+	(void)counter;
+	if (*head == NULL || (*head)->next == NULL)
+		return;
+	while (current->next != NULL)
+	{
+		current = current->next;
+	}
+
+	current->next = top;
+	top->prev = current;
+	second_top->prev = NULL;
+	*head = second_top;
 }
