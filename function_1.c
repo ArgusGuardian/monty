@@ -88,3 +88,8 @@ void add_stack(stack_t **head, unsigned int counter)
 	*head = second_top;
 	free(top);
 }
+
+void nop_stack(unsigned int counter)
+{
+	(void)counter;
+}
