@@ -7,6 +7,7 @@ int brain(stack_t **head, unsigned int counter)
 	instruction_t opcodes[] = {
 		{"push", push_stack},
 		{"pall", pall_stack},
+		{"pint", pint_stack},
 		{NULL, NULL}};
 
 	while (opcodes[i].opcode != NULL)

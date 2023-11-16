@@ -41,3 +41,10 @@ void pall_stack(stack_t **head, unsigned int counter)
 		current = current->next;
 	}
 }
+
+void pint_stack(stack_t **head, unsigned int counter)
+{
+	(void)counter;
+
+	printf("%d\n", (*head)->n);
+}
