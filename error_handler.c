@@ -32,7 +32,7 @@ void error_handler(char *line, FILE *file, unsigned int counter, stack_t *head)
 		if (head == NULL || head->next == NULL)
 		{
 			fprintf(stderr, "L%d: can't add, stack too short\n", counter);
-			free_stack(head);
+			free_for_all(line, file, head, arguments);
 			exit(EXIT_FAILURE);
 		}
 }
