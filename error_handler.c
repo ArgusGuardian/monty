@@ -60,7 +60,7 @@ void error_handler(char *line, FILE *file, unsigned int counter, stack_t *head)
 	{
 		if (head == NULL || head->next == NULL)
 		{
-			fprintf(stderr, "L%u: can't mul, stack too short\n", counter);
+			fprintf(stderr, "L%d: can't mul, stack too short\n", counter);
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -68,12 +68,12 @@ void error_handler(char *line, FILE *file, unsigned int counter, stack_t *head)
 	{
 		if (head == NULL || head->next == NULL)
 		{
-			fprintf(stderr, "L%u: can't mod, stack too short\n", counter);
+			fprintf(stderr, "L%d: can't mod, stack too short\n", counter);
 			exit(EXIT_FAILURE);
 		}
 		if (head->n == 0)
 		{
-			fprintf(stderr, "L%u: division by zero\n", counter);
+			fprintf(stderr, "L%d: division by zero\n", counter);
 			exit(EXIT_FAILURE);
 		}
 	}
@@ -81,14 +81,14 @@ void error_handler(char *line, FILE *file, unsigned int counter, stack_t *head)
 	{
 		if (head == NULL)
 		{
-			fprintf(stderr, "L%u: can't pchar, stack empty\n", counter);
+			fprintf(stderr, "L%d: can't pchar, stack empty\n", counter);
 			free_for_all(line, file, head, arguments);
 			exit(EXIT_FAILURE);
 		}
 
 		if (head->n < 0 || head->n > 127)
 		{
-			fprintf(stderr, "L%u: can't pchar, value out of range\n", counter);
+			fprintf(stderr, "L%d: can't pchar, value out of range\n", counter);
 			free_for_all(line, file, head, arguments);
 			exit(EXIT_FAILURE);
 		}
