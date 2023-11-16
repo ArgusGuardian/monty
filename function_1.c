@@ -61,3 +61,20 @@ void pop_stack(stack_t **head, unsigned int counter)
 
 	free(temp);
 }
+
+void swap_stack(stack_t **head, unsigned int counter)
+{
+	stack_t *first = *head;
+	stack_t *second = (*head)->next;
+
+	(void)counter;
+	first->next = second->next;
+	if (second->next)
+		second->next->prev = first;
+
+	second->prev = NULL;
+	second->next = first;
+	first->prev = second;
+
+	*head = second;
+}

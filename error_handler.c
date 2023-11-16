@@ -21,4 +21,11 @@ void error_handler(char *line, FILE *file, unsigned int counter, stack_t *head)
 			fprintf(stderr, "L%d: can't pop an empty stack\n", counter);
 			exit(EXIT_FAILURE);
 		}
+	if (strcmp(arguments[0], "swap") == 0)
+
+		if (!head || !head->next)
+		{
+			fprintf(stderr, "L%d: can't swap, stack too short\n", counter);
+			exit(EXIT_FAILURE);
+		}
 }

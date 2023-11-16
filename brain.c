@@ -9,6 +9,7 @@ int brain(stack_t **head, unsigned int counter)
 		{"pall", pall_stack},
 		{"pint", pint_stack},
 		{"pop", pop_stack},
+		{"swap", swap_stack},
 		{NULL, NULL}};
 
 	while (opcodes[i].opcode != NULL)
