@@ -51,5 +51,6 @@ int check_line(char *line);
 void push_stack(stack_t **head, unsigned int counter);
 void pall_stack(stack_t **head, unsigned int counter);
 void pint_stack(stack_t **head, unsigned int counter);
+void pop_stack(stack_t **head, unsigned int counter);
 
 #endif

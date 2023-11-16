@@ -15,4 +15,10 @@ void error_handler(char *line, FILE *file, unsigned int counter, stack_t *head)
 			fprintf(stderr, "L%d: can't pint, stack empty\n", counter);
 			exit(EXIT_FAILURE);
 		}
+	if (strcmp(arguments[0], "pop") == 0)
+		if (!head)
+		{
+			fprintf(stderr, "L%d: can't pop an empty stack\n", counter);
+			exit(EXIT_FAILURE);
+		}
 }

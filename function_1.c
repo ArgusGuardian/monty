@@ -48,3 +48,16 @@ void pint_stack(stack_t **head, unsigned int counter)
 
 	printf("%d\n", (*head)->n);
 }
+
+void pop_stack(stack_t **head, unsigned int counter)
+{
+	stack_t *temp = *head;
+
+	(void)counter;
+	*head = (*head)->next;
+
+	if (*head)
+		(*head)->prev = NULL;
+
+	free(temp);
+}
