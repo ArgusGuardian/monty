@@ -161,19 +161,16 @@ void pstr_stack(stack_t **head, unsigned int counter)
 void rotl_stack(stack_t **head, unsigned int counter)
 {
 	stack_t *top = *head;
-	stack_t *second_top = top->next;
-	stack_t *current = second_top;
+	stack_t *current = *head;
 
 	(void)counter;
 	if (*head == NULL || (*head)->next == NULL)
 		return;
+	(*head) = (*head)->next;
+	(*head)->prev = NULL;
 	while (current->next != NULL)
-	{
 		current = current->next;
-	}
-
 	current->next = top;
 	top->prev = current;
-	second_top->prev = NULL;
-	*head = second_top;
+	top->next = NULL;
 }
