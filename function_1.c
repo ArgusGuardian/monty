@@ -37,6 +37,7 @@ void pall_stack(stack_t **head, unsigned int counter)
 	while (current != NULL)
 	{
 		printf("%d\n", current->n);
+		fflush(stdout);
 		current = current->next;
 	}
 }

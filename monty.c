@@ -38,6 +38,9 @@ void read_line(FILE *file)
 	while (getline(&line, &len, file) != -1)
 	{
 		counter++;
+		if (check_line(line) == 0)
+			continue;
+
 		arguments[0] = strtok(line, " \n\t");
 		arguments[1] = strtok(NULL, " \n\t");
 		arguments[2] = strtok(NULL, " \n\t");

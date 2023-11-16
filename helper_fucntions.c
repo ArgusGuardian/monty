@@ -42,3 +42,16 @@ void free_stack(stack_t *head)
 		free(current);
 	}
 }
+
+int check_line(char *line)
+{
+	int i = 0;
+
+	while (line[i] != '\0')
+	{
+		if (line[i] != ' ' && line[i] != '\t' && line[i] != '\n')
+			return (1);
+		i++;
+	}
+	return (0);
+}
