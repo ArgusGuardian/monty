@@ -174,3 +174,20 @@ void rotl_stack(stack_t **head, unsigned int counter)
 	top->prev = current;
 	top->next = NULL;
 }
+
+void rotr_stack(stack_t **head, unsigned int counter)
+{
+	stack_t *current = *head;
+
+	(void)counter;
+	if (*head == NULL || (*head)->next == NULL)
+		return;
+
+	while (current->next != NULL)
+		current = current->next;
+	current->prev->next = NULL;
+	current->prev = NULL;
+	current->next = *head;
+	(*head)->prev = current;
+	*head = current;
+}

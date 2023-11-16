@@ -19,6 +19,7 @@ int brain(stack_t **head, unsigned int counter)
 		{"pchar", pchar_stack},
 		{"pstr", pstr_stack},
 		{"rotl", rotl_stack},
+		{"rotr", rotr_stack},
 		{NULL, NULL}};
 
 	while (opcodes[i].opcode != NULL)
