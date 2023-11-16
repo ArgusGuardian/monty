@@ -100,6 +100,6 @@ void sub_stack(stack_t **head, unsigned int counter)
 	int result = (*head)->next->n - (*head)->n;
 
 	(void)counter;
-	pop_stack(head);
+	pop_stack(head, counter);
 	(*head)->n = result;
 }
