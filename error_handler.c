@@ -77,4 +77,18 @@ void error_handler(char *line, FILE *file, unsigned int counter, stack_t *head)
 			exit(EXIT_FAILURE);
 		}
 	}
+	if (strcmp(arguments[0], "pchar") == 0)
+	{
+		if (head == NULL)
+		{
+			fprintf(stderr, "L%u: can't pchar, stack empty\n", counter);
+			exit(EXIT_FAILURE);
+		}
+
+		if (head->n < 0 || head->n > 127)
+		{
+			fprintf(stderr, "L%u: can't pchar, value out of range\n", counter);
+			exit(EXIT_FAILURE);
+		}
+	}
 }

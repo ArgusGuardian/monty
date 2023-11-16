@@ -16,6 +16,7 @@ int brain(stack_t **head, unsigned int counter)
 		{"div", div_stack},
 		{"mul", mul_stack},
 		{"mod", mod_stack},
+		{"pchar", pchar_stack},
 		{NULL, NULL}};
 
 	while (opcodes[i].opcode != NULL)

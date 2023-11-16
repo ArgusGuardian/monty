@@ -136,3 +136,18 @@ void mod_stack(stack_t **head, unsigned int counter)
 	*head = second_top;
 	free(top);
 }
+
+void pchar_stack(stack_t **head, unsigned int counter)
+{
+	int value = (*head)->n;
+	stack_t *temp = *head;
+
+	(void)counter;
+	putchar((char)value);
+	putchar('\n');
+
+	*head = (*head)->next;
+	if (*head)
+		(*head)->prev = NULL;
+	free(temp);
+}
