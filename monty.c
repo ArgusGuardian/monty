@@ -32,7 +32,7 @@ void read_line(FILE *file)
 	arguments = malloc(sizeof(char *) * 3);
 	if (!arguments)
 	{
-		fprintf(stderr, "Error: malloc failed");
+		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&line, &len, file) != -1)
@@ -50,7 +50,7 @@ void read_line(FILE *file)
 		alert = brain(&head, counter);
 		if (alert == -1)
 		{
-			fprintf(stderr, "L%d: unknown instruction %s", counter, arguments[0]);
+			fprintf(stderr, "L%d: unknown instruction %s\n", counter, arguments[0]);
 			free_for_all(line, file, head, arguments);
 			exit(EXIT_FAILURE);
 		}
