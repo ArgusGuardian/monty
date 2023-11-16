@@ -58,5 +58,6 @@ void nop_stack(stack_t **head, unsigned int counter);
 void sub_stack(stack_t **head, unsigned int counter);
 void div_stack(stack_t **head, unsigned int counter);
 void mul_stack(stack_t **head, unsigned int counter);
+void mod_stack(stack_t **head, unsigned int counter);
 
 #endif
