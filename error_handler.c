@@ -56,4 +56,12 @@ void error_handler(char *line, FILE *file, unsigned int counter, stack_t *head)
 			exit(EXIT_FAILURE);
 		}
 	}
+	if (strcmp(arguments[0], "mul") == 0)
+	{
+		if (head == NULL || head->next == NULL)
+		{
+			fprintf(stderr, "L%u: can't mul, stack too short\n", counter);
+			exit(EXIT_FAILURE);
+		}
+	}
 }

@@ -114,3 +114,14 @@ void div_stack(stack_t **head, unsigned int counter)
 	*head = second_top;
 	free(top);
 }
+
+void mul_stack(stack_t **head, unsigned int counter)
+{
+	stack_t *top = *head;
+	stack_t *second_top = top->next;
+
+	(void)counter;
+	second_top->n *= top->n;
+	*head = second_top;
+	free(top);
+}
