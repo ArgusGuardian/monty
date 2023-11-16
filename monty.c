@@ -45,6 +45,9 @@ void read_line(FILE *file)
 		arguments[1] = strtok(NULL, " \n\t");
 		arguments[2] = strtok(NULL, " \n\t");
 
+		if (strncmp(arguments[0], "#", 1) == 0)
+			continue;
+
 		error_handler(line, file, counter, head);
 
 		alert = brain(&head, counter);
