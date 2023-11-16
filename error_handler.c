@@ -82,14 +82,20 @@ void error_handler(char *line, FILE *file, unsigned int counter, stack_t *head)
 		if (head == NULL)
 		{
 			fprintf(stderr, "L%d: can't pchar, stack empty\n", counter);
-			free_for_all(line, file, head, arguments);
+			free(line);
+			free(arguments);
+			free_stack(head);
+			fclose(file);
 			exit(EXIT_FAILURE);
 		}
 
 		if (head->n < 0 || head->n > 127)
 		{
 			fprintf(stderr, "L%d: can't pchar, value out of range\n", counter);
-			free_for_all(line, file, head, arguments);
+			free(line);
+			free(arguments);
+			free_stack(head);
+			fclose(file);
 			exit(EXIT_FAILURE);
 		}
 	}
