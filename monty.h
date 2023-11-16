@@ -44,9 +44,9 @@ typedef struct instruction_s
 void read_line(FILE *file);
 int brain(stack_t **head, unsigned int counter);
 int _isdigit(char *str);
-void error_handler(char *line, FILE *file, unsigned int counter, stack_t **head);
-void free_stack(stack_t **head);
-void free_for_all(char *line, FILE *file, stack_t **head);
+void error_handler(char *line, FILE *file, unsigned int counter, stack_t *head);
+void free_stack(stack_t *head);
+void free_for_all(char *line, FILE *file, stack_t *head, char **arguments);
 void push_stack(stack_t **head, unsigned int counter);
 void pall_stack(stack_t **head, unsigned int counter);
 

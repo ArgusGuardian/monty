@@ -22,7 +22,7 @@ int _isdigit(char *str)
 	return (1);
 }
 
-void free_for_all(char *line, FILE *file, stack_t **head)
+void free_for_all(char *line, FILE *file, stack_t *head, char **arguments)
 {
 	if (line)
 		free(line);
@@ -31,14 +31,14 @@ void free_for_all(char *line, FILE *file, stack_t **head)
 	free(arguments);
 }
 
-void free_stack(stack_t **head)
+void free_stack(stack_t *head)
 {
 	stack_t *current;
 
-	while (*head != NULL)
+	while (head != NULL)
 	{
-		current = *head;
-		*head = current->next;
+		current = head;
+		(head) = current->next;
 		free(current);
 	}
 }

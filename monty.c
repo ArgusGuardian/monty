@@ -27,13 +27,12 @@ void read_line(FILE *file)
 	size_t len;
 	unsigned int counter = 0;
 	int alert;
-	stack_t *head;
+	stack_t *head = NULL;
 
 	arguments = malloc(sizeof(char *) * 3);
 	if (!arguments)
 	{
 		fprintf(stderr, "Error: malloc failed");
-		fclose(file);
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&line, &len, file) != -1)
@@ -42,15 +41,16 @@ void read_line(FILE *file)
 		arguments[0] = strtok(line, " \n\t");
 		arguments[1] = strtok(NULL, " \n\t");
 		arguments[2] = strtok(NULL, " \n\t");
-		error_handler(line, file, counter, &head);
+
+		error_handler(line, file, counter, head);
 
 		alert = brain(&head, counter);
 		if (alert == -1)
 		{
 			fprintf(stderr, "L%d: unknown instruction %s", counter, arguments[0]);
-			free_for_all(line, file, &head);
+			free_for_all(line, file, head, arguments);
 			exit(EXIT_FAILURE);
 		}
 	}
-	free_for_all(line, file, &head);
+	free_for_all(line, file, head, arguments);
 }
