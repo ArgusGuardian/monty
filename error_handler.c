@@ -35,4 +35,11 @@ void error_handler(char *line, FILE *file, unsigned int counter, stack_t *head)
 			free_for_all(line, file, head, arguments);
 			exit(EXIT_FAILURE);
 		}
+	if (strcmp(arguments[0], "sub") == 0)
+		if (!head || !head->next)
+		{
+			fprintf(stderr, "L%d: can't sub, stack too short\n", counter);
+			free_for_all(line, file, head, arguments);
+			exit(EXIT_FAILURE);
+		}
 }

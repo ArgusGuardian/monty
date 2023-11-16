@@ -94,3 +94,12 @@ void nop_stack(stack_t **head, unsigned int counter)
 	(void)head;
 	(void)counter;
 }
+
+void sub_stack(stack_t **head, unsigned int counter)
+{
+	int result = (*head)->next->n - (*head)->n;
+
+	(void)counter;
+	pop_stack(head);
+	(*head)->n = result;
+}
