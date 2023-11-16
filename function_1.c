@@ -147,13 +147,15 @@ void pchar_stack(stack_t **head, unsigned int counter)
 
 void pstr_stack(stack_t **head, unsigned int counter)
 {
-	stack_t *current = *head;
+	stack_t *top = *head;
 
 	(void)counter;
-	while (current != NULL && current->n != 0 && current->n >= 0 && current->n <= 127)
+	while (top != NULL)
 	{
-		putchar((char)current->n);
-		current = current->next;
+		if (top->n == 0 || top->n < 0 || top->n > 127)
+			break;
+		printf("%c", (char)top->n);
+		top = top->next;
 	}
-	putchar('\n');
+	printf("\n");
 }
